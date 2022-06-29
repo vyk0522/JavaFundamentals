@@ -3,15 +3,21 @@ package com.onejava.lambda;
 import com.onejava.dto.User;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static com.onejava.dto.UserUtil.getUsers;
 
 public class Sample001_Sorting {
     public static void main(String[] args) {
-        User user1 = new User(1, "VV", 34, 100);
-        User user2 = new User(2, "AA", 38, 30);
-        User user3 = new User(3, "ZZ", 12, 50);
-        User user4 = new User(4, "AA", 23, 40);
-        List<User> users = Arrays.asList(user1, user2, user3, user4);
+        List<User> users = getUsers();
+
+        // remove duplicates
+        List<User> users1 = users.stream()
+                .collect(Collectors.toMap(User::getId, Function.identity(), (u1, u2) -> u2))
+                .values().stream().toList();
+        System.out.println("users1: " + users1);
+
 
         System.out.println(users);
         users.sort(Comparator.comparing(User::getName).thenComparing(User::getAge));

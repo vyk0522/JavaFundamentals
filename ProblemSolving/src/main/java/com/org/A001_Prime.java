@@ -1,7 +1,7 @@
 package com.org;
 
 /*
-0,1 are not prime number
+0,1 are not prime number O(sqrt(n))
 Prime Number should have exactly two divisors 1 and Number itself.
  */
 public class A001_Prime {

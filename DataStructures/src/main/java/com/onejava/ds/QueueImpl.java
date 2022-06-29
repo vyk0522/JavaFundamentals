@@ -9,7 +9,8 @@ public class QueueImpl<X> implements Queue<X> {
     }
 
     @Override
-    public void enQueue(X newElement){
+    public void
+    enQueue(X newElement){
         data[j++] = newElement;
     }
 

@@ -9,7 +9,7 @@ public class BubbleSort {
         System.out.println(Arrays.toString(a));
     }
 
-    public static void sort(int[] a){
+    public static void sort(int[] a){ // To sort 5 elements 4 iterations are enough
         int n = a.length;
         for(int i = 0; i < n - 1; i++){
             for (int j = 0; j < n -1- i; j++) {

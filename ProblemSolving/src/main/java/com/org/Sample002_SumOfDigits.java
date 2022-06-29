@@ -9,7 +9,7 @@ public class Sample002_SumOfDigits {
         int result = calculate(n);
         //System.out.println(result);
         List<Integer> integers = Arrays.asList(123456789, 114108089, 110110015, 121, 33, 44, 55, 66, 77, 88, 106108048);
-        integers.stream().forEach(e-> System.out.println(findDigits(e)));
+        integers.stream().forEach(e-> System.out.print(findDigits(e) + " "));
     }
 // 522 = 5 * 2 * 2 - 5 + 2 + 2 = 11
     private static int calculate(int n) {
