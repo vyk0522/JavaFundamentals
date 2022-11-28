@@ -1,4 +1,4 @@
-package com.onejava.lambda;
+package com.onejava.Stream;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -7,14 +7,14 @@ import java.util.function.IntUnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Stream001 {
+public class Stream004_Intro {
     public static void main(String[] args) {
         List<Integer> integers = Arrays.asList(1, 2, 3, 4);
         compute(integers);
 
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
         List<Integer> elementPairList = numbers.stream()
-                .map(Stream001::elementPairs).flatMap(Collection::stream).toList();
+                .map(Stream004_Intro::elementPairs).flatMap(Collection::stream).toList();
         System.out.println(elementPairList); // [0, 2, 1, 3, 2, 4, 3, 5]
 
         System.out.println(printPattern()); // [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]

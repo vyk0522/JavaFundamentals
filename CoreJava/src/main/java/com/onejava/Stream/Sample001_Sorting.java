@@ -1,4 +1,4 @@
-package com.onejava.lambda;
+package com.onejava.Stream;
 
 import com.onejava.dto.User;
 

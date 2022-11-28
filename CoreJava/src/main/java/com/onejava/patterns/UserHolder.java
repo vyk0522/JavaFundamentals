@@ -14,7 +14,6 @@ public class UserHolder {
         List<User> users = UserUtil.getUsers();
         List<UserProjection> userProjectionList = new ArrayList<>();
         Integer[] userAgeSum = {0};
-        Integer sum =0;
 
         users.forEach(user -> {
             userProjectionList.add(new UserProjection(user.getName(), user.getAge()));
