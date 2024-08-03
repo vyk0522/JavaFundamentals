@@ -8,25 +8,28 @@ Given two strings s1 and s2, return true if s2 contains a permutation of s1
  */
 public class String007_Permutations {
     public static void main(String[] args) {
-        permutations("ABC", 0);
+        permutations("ABC", 0, "ABC".length() - 1);
         System.out.println(checkInclusion("ab", "eidbaooo")); // true
         System.out.println(checkInclusion("ab", "eidboaoo")); // false
     }
 
-    private static void permutations(String input, int left){
-        if (left == input.length() - 1){
-            System.out.println(input);
+    private static void permutations(String str, int left, int right){
+        if (left == right){
+            System.out.println(str);
         }
         else{
-            for (int i = left; i < input.length(); i++) {
-                String str = swap(input, left, i);
-                permutations(str, left + 1);
+            for (int i = left; i <= right; i++) {
+                String swappedStr = swap(str, left, i);
+                permutations(swappedStr, left + 1, right);
             }
         }
     }
 
-    private static String swap(String input, int i, int j){
-        char[] chars = input.toCharArray();
+    /*
+     Takes String and swap characters in i and j positions
+     */
+    private static String swap(String str, int i, int j){
+        char[] chars = str.toCharArray();
         char temp = chars[i];
         chars[i] = chars[j];
         chars[j] = temp;
