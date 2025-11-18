@@ -10,8 +10,7 @@ public class UserUtil {
         User user3 = new User(3, "ZZ", 12, 50, "IT");
         User user4 = new User(1, "BB", 23, 40, "HR");
         User user5 = new User(1, "CC", 23, 40, "IT");
-        List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
-        return users;
+        return Arrays.asList(user1, user2, user3, user4, user5);
     }
 
     public static List<User> getUsers1() {
@@ -20,8 +19,9 @@ public class UserUtil {
         User user3 = new User(3, "VV", 12, 50, "IT");
         User user4 = new User(1, "BB", 23, 40, "HR");
         User user5 = new User(1, "AA", 23, 40, "IT");
-        List<User> users = Arrays.asList(user1, user2, user3, user4, user5);
-        return users;
+        User user6 = new User(1, "AA", 23, 40, "ADMIN");
+        User user7 = new User(1, "VV", 34, 100, "IT");
+        return Arrays.asList(user1, user2, user3, user4, user5, user6, user7);
     }
 
     public static List<Employee> getEmployees(){

@@ -30,14 +30,26 @@ public class Stream002 {
 
         Map<String, String> map4 = users.stream().collect(groupingBy(User::getName, mapping(e -> Integer.toString(e.getAge()), joining(", "))));
         Map<String, String> map41 = users.stream().collect(groupingBy(User::getName, mapping(User::getName, joining(", "))));
+        Map<Object, String> map42 = users.stream().collect(groupingBy(User::getName, mapping(User::getName, joining("&&"))));
         System.out.println(map4);
         System.out.println(map41);
+        System.out.println(map42);
 
         Map<String, User> deptTopUserMap1 = users.stream().collect(groupingBy(User::getDepartment,
                 collectingAndThen(maxBy(Comparator.comparingInt(User::getSalary)), Optional::get)));
+
+        Map<String, String> deptToUserName1 = users.stream()
+                .collect(groupingBy(User::getDepartment, collectingAndThen(maxBy(Comparator.comparingInt(User::getSalary)),
+                        optionalUser -> optionalUser.map(User::getName).orElse("No User"))));
+
+
         Map<String, User> deptTopUserMap2 = users.stream().collect(toMap(User::getDepartment, Function.identity(), BinaryOperator.maxBy(Comparator.comparingInt(User::getSalary))));
+
+        Map<String, String> deptToUserName = users.stream().collect(toMap(User::getDepartment, Function.identity(), BinaryOperator.maxBy(Comparator.comparingInt(User::getSalary))))
+                .entrySet().stream().collect(toMap(Map.Entry::getKey, entry -> entry.getValue().getName()));
         System.out.println(deptTopUserMap1);
         System.out.println(deptTopUserMap2);
+        System.out.println(deptToUserName);
 
         Map<Boolean, List<User>> map5 = users.stream().collect(partitioningBy(e -> e.getAge() > 35));
         Map<Boolean, List<String>> map51 = users.stream().collect(partitioningBy(e -> e.getAge() > 35, mapping(User::getName, toList())));
@@ -45,6 +57,10 @@ public class Stream002 {
         System.out.println(map5);
         System.out.println(map51);
         System.out.println(map52);
+
+        String str = "ABABAC";
+        Map<Character, Long> frequency = str.chars().mapToObj(e -> (char)e).collect(groupingBy(Function.identity(), counting()));
+        System.out.println(frequency);
 
 
     }

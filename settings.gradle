@@ -3,4 +3,5 @@ include 'CoreJava'
 include 'ProblemSolving'
 include 'Concurrency'
 include 'DesignPatterns'
+include 'Test'
 
