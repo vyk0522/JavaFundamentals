@@ -36,12 +36,12 @@ public class String003_Palindrome {
         return Objects.equals(s2, reverse(s2));
     }
 
-    private static boolean isPalindromeByChangingExactlyOneChar(String s4){
+    private static boolean isPalindromeByChangingExactlyOneChar(String word){
         int i = 0;
-        int j = s4.length() - 1;
+        int j = word.length() - 1;
         int mismatch = 0;
         while(i < j){
-            if(s4.charAt(i) != s4.charAt(j)){
+            if(word.charAt(i) != word.charAt(j)){
                 mismatch++;
             }
             i++;
@@ -51,7 +51,7 @@ public class String003_Palindrome {
             return false;
         }
         if (mismatch == 0){
-            if (s4.length() %2 != 0){
+            if (word.length() %2 != 0){
                 return true;
             }
             return false;
