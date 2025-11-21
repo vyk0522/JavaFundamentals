@@ -53,11 +53,11 @@ public class String002_Reverse {
     }
 
     public static String reverse(String input){
-        String s1 = "";
+        String reverse = "";
         for (int i = 0; i < input.length(); i++) {
-            s1 = input.charAt(i) + s1;
+            reverse = input.charAt(i) + reverse;
         }
-        return s1;
+        return reverse;
     }
 
     private static String reverseUsingSwap(String input){
@@ -113,9 +113,9 @@ public class String002_Reverse {
         return new String(chars);
     }
 
-    private static void reverse(char[] chars, int i, int j) {
+    private static void reverse(char[] a, int i, int j) {
         while(i < j){
-            swap(chars, i, j);
+            swap(a, i, j);
             i++;
             j--;
         }

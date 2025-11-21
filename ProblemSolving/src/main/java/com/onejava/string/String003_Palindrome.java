@@ -19,23 +19,6 @@ public class String003_Palindrome {
         System.out.println("palindrome by changing char dood: " + isPalindromeByChangingExactlyOneChar("dood")); // false
     }
 
-    private static boolean isPalindromeUsingPointer(String s1) {
-        int i = 0;
-        int j = s1.length() - 1;
-        while(i < j){
-            if(s1.charAt(i) != s1.charAt(j)){
-                return false;
-            }
-            i++;
-            j--;
-        }
-        return true;
-    }
-
-    private static boolean isPalindromeUsingReverse(String s2) {
-        return Objects.equals(s2, reverse(s2));
-    }
-
     private static boolean isPalindromeByChangingExactlyOneChar(String word){
         int i = 0;
         int j = word.length() - 1;
@@ -47,14 +30,30 @@ public class String003_Palindrome {
             i++;
             j--;
         }
-        if (mismatch > 1) {
-            return false;
-        }
-        if (mismatch == 0){
-            if (word.length() %2 != 0){
-                return true;
+        if(mismatch == 1) return true;
+
+        if(mismatch > 1) return false;
+
+        // mismatch == 0
+        //Changing 1 character in an odd-length palindrome means you can modify
+        // the middle character and keep it a palindrome.
+        // Changing 1 character in an even-length palindrome always breaks symmetry.
+        return word.length() % 2 != 0;
+    }
+
+    private static boolean isPalindromeUsingReverse(String s2) {
+        return Objects.equals(s2, reverse(s2));
+    }
+
+    private static boolean isPalindromeUsingPointer(String s1) {
+        int i = 0;
+        int j = s1.length() - 1;
+        while(i < j){
+            if(s1.charAt(i) != s1.charAt(j)){
+                return false;
             }
-            return false;
+            i++;
+            j--;
         }
         return true;
     }
